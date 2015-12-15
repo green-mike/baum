@@ -1,14 +1,13 @@
 {
-  "name": "baum/baum",
+  "name": "green-mike/baum",
   "type": "library",
-  "description": "Baum is an implementation of the Nested Set pattern for Eloquent models.",
+  "description": "fork form Baum",
   "keywords": ["nested set", "laravel", "laravel 4", "laravel 5", "eloquent", "database"],
   "license": "MIT",
   "authors": [
     {
-      "name": "Estanislau Trepat",
-      "email": "estanis@etrepat.com",
-      "homepage": "http://etrepat.com"
+      "name": "Mike Huang",
+      "email": "m65432102000@hotmail.com"
     }
   ],
   "require": {
