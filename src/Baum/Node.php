@@ -52,6 +52,8 @@ abstract class Node extends Model {
    */
   protected $orderColumn = null;
 
+  protected $changeableOrderColumn = null;
+
   /**
   * Guard NestedSet fields from mass-assignment.
   *
@@ -252,8 +254,26 @@ abstract class Node extends Model {
    * @return string
    */
   public function getOrderColumnName() {
-    return is_null($this->orderColumn) ? $this->getLeftColumnName() : $this->orderColumn;
+    if (isset($this->getChangeableOrderColumnName())) {
+      return $this->getChangeableOrderColumnName();
+    }
+
+    if (isset($this->orderColumn)) {
+      return $this->orderColumn;
+    }
+
+    return $this->getLeftColumnName();
   }
+
+  /**
+   *
+   *
+   * @return string
+   */
+  public function getChangeableOrderColumnName() {
+    return is_null($this->changeableOrderColumn) ? null : $this->changeableOrderColumn;
+  }
+
 
   /**
    * Get the table qualified "order" field column name.

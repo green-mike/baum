@@ -96,12 +96,19 @@ class SetMapper {
     // present) and save it. Finally, tail-recurse performing the same
     // operations for any child node present. Setting the `parent_id` property at
     // each level will take care of the nesting work for us.
+
+    $sort = 0;
     foreach($tree as $attributes) {
       $node = $this->firstOrNew($this->getSearchAttributes($attributes));
 
       $data = $this->getDataAttributes($attributes);
       if ( !is_null($parentKey) )
         $data[$node->getParentColumnName()] = $parentKey;
+
+      if ( !is_null($node->getChangeableOrderColumnName()) ) {
+        $data[$node->getChangeableOrderColumnName()] = $sort;
+        $sort++;
+      }
 
       $node->fill($data);
 
