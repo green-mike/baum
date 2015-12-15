@@ -254,7 +254,7 @@ abstract class Node extends Model {
    * @return string
    */
   public function getOrderColumnName() {
-    if (isset($this->getChangeableOrderColumnName())) {
+    if (! is_null($this->getChangeableOrderColumnName())) {
       return $this->getChangeableOrderColumnName();
     }
 
