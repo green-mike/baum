@@ -13,7 +13,7 @@ class Collection extends BaseCollection {
         return ($a->getOrder() >= $b->getOrder()) ? 1 : -1;
     });
 
-    return new BaseCollection($this->hierarchical($dict));
+    return (new BaseCollection($this->hierarchical($dict)))->values();
   }
 
   protected function hierarchical($result) {
