@@ -102,8 +102,8 @@ class SetMapper {
       $node = $this->firstOrNew($this->getSearchAttributes($attributes));
 
       $data = $this->getDataAttributes($attributes);
-      if ( !is_null($parentKey) )
-        $data[$node->getParentColumnName()] = $parentKey;
+
+      $data[$node->getParentColumnName()] = $parentKey;
 
       if ( !is_null($node->getChangeableOrderColumnName()) ) {
         $data[$node->getChangeableOrderColumnName()] = $sort;
